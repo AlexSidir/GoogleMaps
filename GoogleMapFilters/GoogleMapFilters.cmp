@@ -1,0 +1,86 @@
+<aura:component controller="GoogleMapController">
+	<aura:registerEvent name="setAttribute" type="c:GoogleMapEvent" />
+
+	<!--Create filters for the map -->
+	<lightning:card iconName="action:filter" title="Filters"
+		class="slds-text-title">
+		<div class="slds-p-around--small">
+			<div class="slds-page-header" style="cursor: pointer;"
+				onclick="{!c.countriesSection}">
+				<section class="slds-clearfix">
+					<div class="slds-float--left ">
+						<lightning:icon class="slds-show" aura:id="countries"
+							iconName="utility:add" size="x-small"
+							alternativeText="Indicates add" />
+						<lightning:icon class="slds-hide" aura:id="countries"
+							iconName="utility:dash" size="x-small"
+							alternativeText="Indicates dash" />
+					</div>
+					<div class="slds-m-left--large">Countries</div>
+				</section>
+			</div>
+			<div class="slds-hide slds-p-around--medium" aura:id="countries">
+				<div class="indent">
+					<p class="header">Select Countries</p>
+					<ui:inputSelect class="multiple" aura:id="inputSelectCountries"
+						multiple="true" change="{!c.onSelectionChangedCountries}">
+						<ui:inputSelectOption text="All" />
+						<ui:inputSelectOption text="Germany" />
+						<ui:inputSelectOption text="France" />
+						<ui:inputSelectOption text="Poland" />
+						<ui:inputSelectOption text="Spain" />
+						<ui:inputSelectOption text="Canada" />
+						<ui:inputSelectOption text="Ukraine" />
+						<ui:inputSelectOption text="United Kingdom" />
+						<ui:inputSelectOption text="Ireland" />
+					</ui:inputSelect>
+					<p class="padding">
+						Selected Countries:
+						<ui:outputText class="selected" aura:id="selectedOptionsCountries"
+							value="" />
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="slds-p-around--small">
+			<div class="slds-page-header" style="cursor: pointer;"
+				onclick="{!c.customerPrioritySection}">
+				<section class="slds-clearfix">
+					<div class="slds-float--left ">
+						<lightning:icon class="slds-show" aura:id="customerPriority"
+							iconName="utility:add" size="x-small"
+							alternativeText="Indicates add" />
+						<lightning:icon class="slds-hide" aura:id="customerPriority"
+							iconName="utility:dash" size="x-small"
+							alternativeText="Indicates dash" />
+					</div>
+					<div class="slds-m-left--large">Customer Priority</div>
+				</section>
+			</div>
+			<div class="slds-hide slds-p-around--medium"
+				aura:id="customerPriority">
+				<div class="indent">
+					<p class="header">Select Countries</p>
+					<ui:inputSelect class="multiple"
+						aura:id="inputSelectCustomerPriority" multiple="true"
+						change="{!c.onSelectionChangedCustomerPriority}">
+						<ui:inputSelectOption text="All" />
+						<ui:inputSelectOption text="High" />
+						<ui:inputSelectOption text="Medium" />
+						<ui:inputSelectOption text="Low" />
+					</ui:inputSelect>
+					<p class="padding">
+						Selected Countries:
+						<ui:outputText class="selected"
+							aura:id="selectedOptionsCustomerPriority" value="" />
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="slds-align_absolute-center button">
+			<lightning:button variant="brand" label="Update Map"
+				onclick="{!c.updateMap}" />
+		</div>
+	</lightning:card>
+	<br />
+</aura:component>

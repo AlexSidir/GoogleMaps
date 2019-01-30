@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Event template">
+    <aura:attribute name="countriesData" type="String" description="Countries Selected on filters"/>
+    <aura:attribute name="customerPriorityData" type="String" description="Customer Priority Selected on filters"/>
+</aura:event>

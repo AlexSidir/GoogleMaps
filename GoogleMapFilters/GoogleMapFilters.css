@@ -1,0 +1,19 @@
+.THIS .header {
+    font-size: 18px;
+    padding-top: 0px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.THIS.indent {
+    padding-left: 10px;
+}
+
+.THIS .selected {
+    color: orange;
+    font-weight: bold;
+}
+
+.THIS .padding {
+    padding-top: 10px;
+}
